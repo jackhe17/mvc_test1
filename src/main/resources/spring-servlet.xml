@@ -6,13 +6,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-
+<!-- 
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
     
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-  
+   -->
      
-    <!--  <mvc:annotation-driven /> -->
+   <mvc:annotation-driven /> 
     <!-- ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -21,6 +21,8 @@
     </bean>
     
     <!-- 处理器 -->
-    <bean name="/hello" class="com.mvc.controller.UserController"/>
-    
+    <!-- <bean name="/hello" class="com.mvc.controller.UserController"/> -->
+    <context:component-scan base-package="com.mvc.controller">
+    	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 </beans>

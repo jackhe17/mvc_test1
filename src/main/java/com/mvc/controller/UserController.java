@@ -3,10 +3,14 @@ package com.mvc.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
-public class UserController implements Controller{
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.mvc.Controller;
+
+/*public class UserController implements Controller{
 
 
 	@Override
@@ -26,4 +30,14 @@ public class UserController implements Controller{
 
 
 	
+}*/
+@Controller
+public class UserController{
+	
+	@RequestMapping(value="/hello")
+	public String hello(Model model){
+		System.out.println("--------8888888888---");
+		model.addAttribute("message", "Hello world!");
+		return "hello";
+	}
 }
