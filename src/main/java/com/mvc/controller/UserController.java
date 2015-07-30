@@ -11,6 +11,7 @@ public class UserController implements Controller{
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("----------------------");		
 		//1、收集参数
 				//2、绑定参数到命令对象
 				//3、调用业务对象
